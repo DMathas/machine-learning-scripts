@@ -20,4 +20,4 @@ Showcases experiments on the MNIST dataset, including training with different le
 The scripts include functions for forward and backward passes, initialization, updating parameters, and training a simple neural network.
 The vectorized implementation uses NumPy for efficient matrix operations, improving computational performance.
 Experiments with synthetic data and the MNIST dataset demonstrate the functionality and performance of the implemented algorithms.
-Feel free to modify and extend the scripts for your specific needs or as a learning resource.
+
