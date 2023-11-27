@@ -7,7 +7,7 @@ David Mathas - November 2023
 
 ## Scripts Overview:
 
-# 1. LOOP_MAIN_ML_scripts.py
+## 1. LOOP_MAIN_ML_scripts.py
 Implements a basic machine learning pipeline with explicit loops.
 Uses plain Python code for simplicity.
 Includes functions for forward and backward passes, initialization, updating parameters, and training the neural network using stochastic gradient descent (SGD).
