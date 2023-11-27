@@ -42,35 +42,6 @@ def cross_entropy_loss(predicted_probs: list, true_class: int) -> float:
 
 #initialization function: 
 
-#numpy version:
-# def initialize_parameters(sizes: list) -> dict:
-#     """
-#     Initialize the parameters (weights and biases) of the neural network.
-
-#     Parameters: sizes: list: Network sizes.
-
-#     Returns: dict: Initialized parameters.
-#     """
-
-#     n_input = sizes[0]
-#     n_hidden = sizes[1] #number of nodes in the hidden layer
-#     n_output = sizes[2]
-
-#     W = [[np.random.randn()*0.1 for _ in range(n_hidden)] for _ in range(n_input)] #*0.01 Xavier initialization in the nested for-loops
-#     b = np.zeros(n_hidden)
-#     V = [[np.random.randn()*0.1 for _ in range(n_output)] for _ in range(n_hidden)] 
-#     c = np.zeros(n_output)
-
-#     #assertion checks;
-#     assert np.array(W).shape == (n_input, n_hidden)
-#     assert b.shape == (n_hidden,)
-#     assert np.array(V).shape == (n_hidden, n_output)
-#     assert c.shape == (n_output,)
-
-#     parameters = {'W': W, 'b': b, 'V': V, 'c': c}
-    
-#     return parameters
-
 def initialize_parameters(sizes: list) -> dict:
     """
     Initialize the parameters (weights and biases) of the neural network.
