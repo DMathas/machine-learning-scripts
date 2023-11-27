@@ -24,4 +24,6 @@ The scripts include functions for forward and backward passes, initialization, u
 The vectorized implementation uses NumPy for efficient matrix operations, improving computational performance.
 Experiments with synthetic data and the MNIST dataset demonstrate the functionality and performance of the implemented algorithms.
 
+## Additional Notes:
+
 This project was part of the course Deep Learning at the Vrije Universiteit Amsterdam (VU).
