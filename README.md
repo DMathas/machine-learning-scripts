@@ -2,7 +2,7 @@
 
 This repository contains two main scripts that implement a simple machine learning classification algorithm. The first script, loop_main.py, uses basic Python code (except for the math package), while the second script, vec_main.py, utilizes a vectorized implementation with mainly NumPy.
 
-## Authors
+## Author
 David Mathas - November 2023
 
 ## Scripts Overview:
