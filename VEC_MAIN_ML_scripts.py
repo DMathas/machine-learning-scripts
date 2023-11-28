@@ -41,7 +41,6 @@ def cross_entropy_loss(predicted_probs: list, true_class: int) -> float:
 ###### Training the network: ######
 
 #initialization function: 
-
 def initialize_parameters(sizes: list) -> dict:
     """
     Initialize the parameters (weights and biases) of the neural network.
@@ -78,17 +77,10 @@ def update_parameters(parameters: dict, derivatives: dict,
     Returns: dict: Updated parameters.
     """
 
-    # for param in parameters:
-    #     print(f"param: {param}, derivatives[f'd{param}']: {derivatives[f'd{param}']}")
-    #     parameters[param] -= learning_rate * derivatives[f'd{param}'] #to account for the fact that the derivatives are named dW, db, etc....
-    
     for param in parameters:
         #Retrieve each parameter and gradient:
         param_value = parameters[param]
         grad_value = derivatives[f'd{param}']
-        # print('for:', param)
-        # print('param value:', param_value)
-        # print('gradient value:', grad_value)
 
         #update:
         parameters[param] = param_value - learning_rate * np.array(grad_value) #if using numpy
@@ -120,7 +112,7 @@ def train_neural_network(xtrain, ytrain, xval, yval,
     for epoch in range(num_epochs):
         #Training:
         total_cost_train = 0.0
-        # print('parameters before/after:', parameters)
+
         for i in range(len(xtrain)):
             input_data = xtrain[i]
             true_class = ytrain[i]
@@ -150,7 +142,7 @@ def train_neural_network(xtrain, ytrain, xval, yval,
         avg_cost_val = total_cost_val / len(xval)
         validation_costs.append(avg_cost_val)
 
-        #Print the cost every 10 iterations
+        #IF printing the cost every 10 iterations
         # if epoch % 10 == 0:
         print(f"Epoch {epoch + 1}/{num_epochs}, Training Cost: {avg_cost_train}, Validation Cost: {avg_cost_val}")
 
@@ -274,7 +266,7 @@ def calculate_accuracy(parameters, sizes, x_data, true_labels):
 
         #get predicted probabilities:
         predicted_probs, _ = forward_pass(sample_image, parameters)
-        # print('pred prob.:', predicted_probs)
+
         #Get the predicted class:
         predicted_class = np.argmax(predicted_probs)
 
@@ -332,14 +324,10 @@ def evaluate_learning_rates(learning_rates: list,
 
 
 def main():
-    
     ################### 
     #MNIST data vectorized neural network:
-
     #load MNIST data
     (xtrain_mnist, ytrain_mnist), (xval_mnist, yval_mnist), num_cls_mnist = load_mnist()
-
-    
 
     #normalize pixel values by greyscale range:
     xtrain_mnist_norm, xval_mnist_norm = normalize_mnist(xtrain_mnist), normalize_mnist(xval_mnist)
@@ -362,21 +350,16 @@ def main():
                          yval_mnist, 
                          model_2_sizes, num_epochs_model, learning_rate_model)
 
-
-
-
-
-    # ### Running some experiments ###
+    ### Running some experiments ###
     #Experiment 1: #in overleaf
     # #plot cots:
     plot_costs(train_cost_1, val_cost_1)
 
     #Experiment 2: 
     num_epochs_model = 5
-    # learning_rate_model = 0.01
-    # num_experiments = 3
-    # run_experiment_2(xtrain_mnist_norm, ytrain_mnist, xval_mnist_norm, yval_mnist, model_2_sizes, num_epochs_model, learning_rate_model, num_experiments)
-
+    learning_rate_model = 0.01
+    num_experiments = 3
+    run_experiment_2(xtrain_mnist_norm, ytrain_mnist, xval_mnist_norm, yval_mnist, model_2_sizes, num_epochs_model, learning_rate_model, num_experiments)
 
     #Experiment 3: accuracy as performance measure 
     #caculate accuracies for different learning rates:
@@ -394,9 +377,7 @@ def main():
         print(f"Learning Rate {rate}: {accuracy:.2f}%")
     #result --> optimal learning rate seems to be 0.03
 
-
-
-    # #Experiment 4 to show result in cannonical set...:
+    #Experiment 4 plot:
     (xtrain_mnist_can, ytrain_mnist_can), (xtest_mnist_can, ytest_mnist_can), num_cls_mnist = load_mnist(final=True)
     print('length canonical train set:', len(xtrain_mnist_can))
 
@@ -412,6 +393,7 @@ def main():
                          model_2_sizes, num_epochs_model, learning_rate_optim)
     #plot loss curves:
     plot_costs(train_cost_can, test_cost_can)
+    
     #calculate accuracy after traoining on canonical set:
     accuracy_can = calculate_accuracy(parameters_can, model_2_sizes, xtest_mnist_can_norm, ytest_mnist_can)
     print('Test set accuracy is:', accuracy_can)
