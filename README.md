@@ -7,6 +7,10 @@ David Mathas - November 2023
 
 ## Scripts Overview:
 
+The scripts include functions for forward and backward passes, initialization, updating parameters, and training a simple neural network.
+The vectorized implementation uses NumPy for efficient matrix operations, improving computational performance.
+Experiments with synthetic data and the MNIST dataset demonstrate the functionality and performance of the implemented algorithms.
+
 ## 1. LOOP_MAIN_ML_scripts.py
 Implements a basic machine learning pipeline with explicit loops.
 Uses plain Python code for simplicity.
@@ -19,10 +23,5 @@ Implements the same functionality as loop_main.py but with vectorized operations
 Showcases experiments on the MNIST dataset, including training with different learning rates and evaluating the model on a canonical test set.
 
 ## Additional Notes:
-
-The scripts include functions for forward and backward passes, initialization, updating parameters, and training a simple neural network.
-The vectorized implementation uses NumPy for efficient matrix operations, improving computational performance.
-Experiments with synthetic data and the MNIST dataset demonstrate the functionality and performance of the implemented algorithms.
-
 
 This project was part of the course Deep Learning at the Vrije Universiteit Amsterdam (VU).
