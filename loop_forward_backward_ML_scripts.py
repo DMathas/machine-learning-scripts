@@ -119,7 +119,7 @@ def backward_pass(input: list,
     for i in range(n_input):
         for j in range(n_hidden):
             dW[i][j] = dk[j] * input[i]
-    # print(dW)
+
     db = dk
 
     derivatives = {"dW": dW, "db": db, "dV": dV, "dc": dc}
