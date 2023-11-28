@@ -26,6 +26,7 @@ def cross_entropy_loss(predicted_probs: list, true_class: int) -> float:
 
     Returns: float: Cross-entropy loss.
     """
+    
     #to make sure the the true class index is valid
     assert 0 <= true_class < len(predicted_probs), "Invalid true class index"
 
@@ -90,10 +91,6 @@ def update_parameters(parameters: dict, derivatives: dict,
     Returns: dict: Updated parameters.
     """
 
-    # for param in parameters:
-    #     print(f"param: {param}, derivatives[f'd{param}']: {derivatives[f'd{param}']}")
-    #     parameters[param] -= learning_rate * derivatives[f'd{param}'] #to account for the fact that the derivatives are named dW, db, etc....
-    
     W = parameters["W"]
     b = parameters["b"]
     V = parameters["V"]
@@ -194,7 +191,7 @@ def train_neural_network(xtrain, ytrain, xval, yval,
 
 
 def main():
-
+    ### Test weights: ###
     print('##########')
     #Define input, output, and weights:
     W = [[1., 1., 1.], [-1., -1., -1.]]
@@ -229,8 +226,7 @@ def main():
     print("dc:", derivatives_model_1["dc"])
     print('##########')
 
-
-    #Load synthetic data for Q4:
+    #Load synthetic data:
     (xtrain, ytrain), (xval, yval), num_cls = load_synth()
     print('Data loaded in.')
     print('Number of classes:', num_cls)
@@ -259,7 +255,7 @@ def main():
         print('################')
         print('')
 
-    # Initialization:
+    #Initialization:
     print(initialize_parameters(model_1_sizes))
 
     #running the entire pipeline:
