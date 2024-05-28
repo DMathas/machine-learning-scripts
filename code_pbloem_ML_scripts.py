@@ -1,4 +1,4 @@
-# This code is not my own! -> taken from: https://gist.github.com/pbloem/bd8348d58251872d9ca10de4816945e4
+# This code is not my own! -> Courtesy of P. Bloem: https://gist.github.com/pbloem/bd8348d58251872d9ca10de4816945e4
 
 import numpy as np
 from urllib import request
